@@ -63,7 +63,7 @@
         <item name="android:layout_weight">1</item>
         <item name="android:focusable">true</item>
         <item name="themeBackground">@drawable/btn_function</item>
-        <item name="font">btn_font</item>
+        <!--<item name="font">btn_font</item>-->
         <item name="android:layout_marginLeft">1dp</item>
         <item name="textColor">@color/function_text_color</item>
         <item name="textColorHint">@color/button_hint_text</item>
@@ -102,7 +102,7 @@
     <style name="Theme.Calculator.ButtonStyle.Del">
         <item name="themeBackground">@drawable/btn_del</item>
         <item name="textColor">@color/del_text_color</item>
-        <item name="font">del_font</item>
+        <!--<item name="font">del_font</item>-->
     </style>
 
     <style name="Theme.Calculator.ButtonFunctionCellStyle">
