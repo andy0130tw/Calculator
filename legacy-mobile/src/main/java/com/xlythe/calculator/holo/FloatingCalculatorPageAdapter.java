@@ -2,12 +2,13 @@ package com.xlythe.calculator.holo;
 
 import android.content.Context;
 import android.os.Parcelable;
-import android.support.v4.view.PagerAdapter;
+import androidx.viewpager.widget.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
+
 
 import com.xlythe.calculator.holo.view.CalculatorDisplay;
 
