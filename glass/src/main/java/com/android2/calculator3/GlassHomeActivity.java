@@ -15,7 +15,7 @@ import com.google.android.glass.touchpad.GestureDetector;
 import com.xlythe.math.Solver;
 import com.xlythe.math.Voice;
 
-import org.javia.arity.SyntaxException;
+import com.xlythe.math.SyntaxException;
 
 import java.util.List;
 
