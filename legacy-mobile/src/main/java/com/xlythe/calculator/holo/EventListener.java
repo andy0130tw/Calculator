@@ -34,7 +34,7 @@ import com.xlythe.calculator.holo.view.MatrixTransposeView;
 import com.xlythe.calculator.holo.view.MatrixView;
 import com.xlythe.math.Base;
 
-import org.javia.arity.SyntaxException;
+import com.xlythe.math.SyntaxException;
 
 public class EventListener implements View.OnKeyListener, View.OnClickListener, View.OnLongClickListener {
     Context mContext;

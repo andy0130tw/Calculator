@@ -52,7 +52,7 @@ public class ThemesFragment extends Fragment implements OnItemClickListener, OnI
         super.onActivityCreated(savedInstanceState);
 
         if (mThemes.isEmpty()) setViewShown(false);
-        new App.Query(getContext()).all(new RemoteModel.Callback<List<App>>() {
+        new App.Query(getContext()).all(new com.xlythe.dao.Callback<List<App>>() {
             @Override
             public void onSuccess(List<App> result) {
                 mThemes.clear();

@@ -14,7 +14,7 @@ import com.xlythe.math.Base;
 import com.xlythe.math.BaseModule;
 import com.xlythe.math.Solver;
 
-import org.javia.arity.SyntaxException;
+import com.xlythe.math.SyntaxException;
 
 import java.text.DecimalFormatSymbols;
 

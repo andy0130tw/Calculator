@@ -13,7 +13,7 @@ import com.xlythe.engine.theme.Theme;
 import com.xlythe.engine.theme.ThemedTableLayout;
 
 import org.ejml.simple.SimpleMatrix;
-import org.javia.arity.SyntaxException;
+import com.xlythe.math.SyntaxException;
 
 import java.text.DecimalFormatSymbols;
 import java.util.regex.Pattern;

@@ -1,1 +1,3 @@
 include ':mobile', ':legacy-mobile', ':wear', ':glass', ':GDK-ProgressBar', ':FloatingView', ':circularreveal'
+include ':ThemeEngine'
+project(':ThemeEngine').projectDir = new File('./ThemeEngine/theme-engine')

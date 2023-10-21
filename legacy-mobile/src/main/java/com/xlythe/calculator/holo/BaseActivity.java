@@ -2,8 +2,9 @@ package com.xlythe.calculator.holo;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.fragment.app.FragmentActivity;
 import android.view.MenuItem;
+
+import androidx.fragment.app.FragmentActivity;
 
 import com.xlythe.engine.theme.Theme;
 
@@ -45,10 +46,18 @@ public class BaseActivity extends FragmentActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            Intent i = getPackageManager().getLaunchIntentForPackage(getPackageName());
-            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(i);
-            return true;
+            int backStackLength = getSupportFragmentManager().getBackStackEntryCount();
+
+            if (backStackLength > 0) {
+                onBackPressed();
+                return true;
+            } else {
+                // we are at the top; bring back the main activity
+                Intent i = getPackageManager().getLaunchIntentForPackage(getPackageName());
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(i);
+                return true;
+            }
         }
         return super.onOptionsItemSelected(item);
     }

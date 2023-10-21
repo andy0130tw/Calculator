@@ -98,4 +98,44 @@
     <string name="clear_history">Clear history</string>
     <!-- Toast shown when text is copied to the clipboard. -->
     <string name="text_copied_toast">Text copied.</string>
+
+    <string name="leftParenDesc">""</string>
+    <string name="rightParenDesc">""</string>
+    <string name="factorialDesc">""</string>
+    <string name="lnDesc">""</string>
+    <string name="lgDesc">""</string>
+    <string name="sqrtDesc">""</string>
+    <string name="divDesc">""</string>
+    <string name="mulDesc">""</string>
+    <string name="plusDesc">""</string>
+    <string name="minusDesc">""</string>
+    <string name="dotDesc">""</string>
+    <string name="powerDesc">""</string>
+    <string name="delDesc">""</string>
+    <string name="clearDesc">""</string>
+    <string name="tanDesc">""</string>
+    <string name="sinDesc">""</string>
+    <string name="cosDesc">""</string>
+    <string name="eDesc">""</string>
+    <string name="piDesc">""</string>
+    <string name="equalDesc">""</string>
+    <string-array name="operatorDescs">
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+    </string-array>
 </resources>

@@ -400,10 +400,11 @@ public class Calculator extends BaseActivity implements Logic.Listener, OnClickL
             unlock.setVisible(!mHistorySlider.isSliderOpen() && page != null && page.isGraph() && !getPagingEnabled());
         }
 
-        MenuItem store = menu.findItem(R.id.store);
-        if (store != null) {
-            store.setVisible(!mHistorySlider.isSliderOpen() && App.doesPackageExists(getContext(), "com.android.vending"));
-        }
+        // store no longer works :(
+        // MenuItem store = menu.findItem(R.id.store);
+        // if (store != null) {
+        //     store.setVisible(!mHistorySlider.isSliderOpen() && App.doesPackageExists(getContext(), "com.android.vending"));
+        // }
 
         return true;
     }

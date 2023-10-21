@@ -19,7 +19,7 @@ import com.xlythe.math.History;
 import com.xlythe.math.Persist;
 import com.xlythe.math.Solver;
 
-import org.javia.arity.SyntaxException;
+import com.xlythe.math.SyntaxException;
 
 import java.text.DecimalFormatSymbols;
 

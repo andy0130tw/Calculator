@@ -16,17 +16,6 @@
 -->
 
 <resources>
-    <declare-styleable name="Theme.Calculator">
-        <attr name="themeBackground" format="color" />
-        <attr name="textColor" format="color" />
-        <attr name="textColorHint" format="color" />
-        <!--<attr name="font" format="string" />-->
-    </declare-styleable>
-
-    <declare-styleable name="com.xlythe.engine.theme.ThemedImageView">
-        <attr name="src" format="reference" />
-    </declare-styleable>
-
     <declare-styleable name="ScrollableDisplay">
         <!-- Used to limit the height of Scrollable Display -->
         <attr name="max_height" format="dimension" />

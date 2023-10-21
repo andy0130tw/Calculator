@@ -5,13 +5,15 @@ import android.content.Intent;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.os.Vibrator;
-import android.preference.Preference;
-import android.preference.Preference.OnPreferenceChangeListener;
-import android.preference.Preference.OnPreferenceClickListener;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceManager;
 import android.view.View;
-import android.widget.ListView;
+
+import androidx.preference.Preference;
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.Preference.OnPreferenceClickListener;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceManager;
+import androidx.recyclerview.widget.RecyclerView.LayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.xlythe.calculator.holo.CalculatorWidget;
 import com.xlythe.calculator.holo.FloatingCalculator;
@@ -20,13 +22,12 @@ import com.xlythe.calculator.holo.R;
 import com.xlythe.engine.theme.Theme;
 import com.xlythe.engine.theme.ThemeListPreference;
 
-public class PreferencesFragment extends PreferenceFragment {
+public class PreferencesFragment extends PreferenceFragmentCompat {
     private static final String EXTRA_LIST_POSITION = "list_position";
     private static final String EXTRA_LIST_VIEW_OFFSET = "list_view_top";
+    private LinearLayoutManager mLayoutManager;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.layout.preferences);
 
         // Update theme (as needed)
@@ -39,7 +40,7 @@ public class PreferencesFragment extends PreferenceFragment {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
                     PageOrderFragment fragment = new PageOrderFragment();
-                    getFragmentManager().beginTransaction().replace(R.id.content_view, fragment).addToBackStack(null).commit();
+                    getParentFragmentManager().beginTransaction().replace(R.id.content_view, fragment).addToBackStack(null).commit();
                     return true;
                 }
             });
@@ -52,7 +53,7 @@ public class PreferencesFragment extends PreferenceFragment {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
                     ActionsPreferencesFragment fragment = new ActionsPreferencesFragment();
-                    getFragmentManager().beginTransaction().replace(R.id.content_view, fragment).addToBackStack(null).commit();
+                    getParentFragmentManager().beginTransaction().replace(R.id.content_view, fragment).addToBackStack(null).commit();
                     return true;
                 }
             });
@@ -65,7 +66,7 @@ public class PreferencesFragment extends PreferenceFragment {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
                     UnitsPreferencesFragment fragment = new UnitsPreferencesFragment();
-                    getFragmentManager().beginTransaction().replace(R.id.content_view, fragment).addToBackStack(null).commit();
+                    getParentFragmentManager().beginTransaction().replace(R.id.content_view, fragment).addToBackStack(null).commit();
                     return true;
                 }
             });
@@ -86,7 +87,7 @@ public class PreferencesFragment extends PreferenceFragment {
                     Intent intent = new Intent(getActivity(), Preferences.class);
 
                     // Preserve the list offsets
-                    int itemPosition = getListView().getFirstVisiblePosition();
+                    int itemPosition = mLayoutManager.findFirstVisibleItemPosition();
                     View child = getListView().getChildAt(0);
                     int itemOffset = child != null ? child.getTop() : 0;
 
@@ -125,21 +126,19 @@ public class PreferencesFragment extends PreferenceFragment {
     public void onStart() {
         super.onStart();
 
+        mLayoutManager = new LinearLayoutManager(getContext());
+        getListView().setLayoutManager(mLayoutManager);
+
         // Restore the scroll position, if any
         final Bundle args = getArguments();
         if (args != null) {
-            getListView().setSelectionFromTop(args.getInt(EXTRA_LIST_POSITION, 0), args.getInt(EXTRA_LIST_VIEW_OFFSET, 0));
+            mLayoutManager.scrollToPositionWithOffset(args.getInt(EXTRA_LIST_POSITION, 0), args.getInt(EXTRA_LIST_VIEW_OFFSET, 0));
         }
     }
 
-    public ListView getListView() {
-        return (ListView) getView().findViewById(android.R.id.list);
-    }
-
-    public static class ActionsPreferencesFragment extends PreferenceFragment {
+    public static class ActionsPreferencesFragment extends PreferenceFragmentCompat {
         @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             addPreferencesFromResource(R.layout.preferences_actions);
 
             Preference floatingCalc = findPreference("FLOATING_CALCULATOR");
@@ -186,10 +185,9 @@ public class PreferencesFragment extends PreferenceFragment {
         }
     }
 
-    public static class UnitsPreferencesFragment extends PreferenceFragment {
+    public static class UnitsPreferencesFragment extends PreferenceFragmentCompat {
         @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             addPreferencesFromResource(R.layout.preferences_units);
         }
     }

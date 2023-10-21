@@ -1,10 +1,11 @@
 package com.xlythe.calculator.holo;
 
 import android.app.ActionBar;
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
+
+import androidx.fragment.app.Fragment;
 
 import com.xlythe.calculator.holo.view.PreferencesFragment;
 import com.xlythe.engine.theme.Theme;
@@ -24,12 +25,14 @@ public class Preferences extends BaseActivity {
             super.setTheme(customTheme);
         }
 
+        // TODO: set alertDialogTheme according to light/dark configuration
+
         setContentView(R.layout.activity_preferences);
 
         if (savedInstanceState == null) {
             mFragment = new PreferencesFragment();
             mFragment.setArguments(getIntent().getExtras());
-            getFragmentManager().beginTransaction().add(R.id.content_view, mFragment).commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.content_view, mFragment).commit();
         }
 
         ActionBar mActionBar = getActionBar();
@@ -47,9 +50,9 @@ public class Preferences extends BaseActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent keyEvent) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (getFragmentManager().findFragmentById(R.id.content_view) != mFragment) {
+            if (getSupportFragmentManager().findFragmentById(R.id.content_view) != mFragment) {
                 try {
-                    getFragmentManager().popBackStack();
+                    getSupportFragmentManager().popBackStack();
                     return true;
                 } catch (Exception e) {
                     e.printStackTrace();

@@ -48,12 +48,12 @@
         <item name="android:lineSpacingMultiplier">1.1</item>
     </style>
 
-    <style name="Theme.Calculator" parent="android:Theme.Holo.NoActionBar">
+    <style name="Theme.Calculator" parent="android:Theme.Material.NoActionBar">
         <item name="android:windowBackground">@drawable/background</item>
     </style>
 
-    <style name="Theme.Settings.Calculator" parent="@android:style/Theme.Holo">
-        <item name="android:actionBarStyle">@android:style/Widget.Holo.ActionBar.Solid</item>
+    <style name="Theme.Settings.Calculator" parent="android:Theme.Material">
+        <item name="alertDialogTheme">@style/Theme.AppCompat.Dialog</item>
     </style>
 
     <style name="Theme.Calculator.ButtonStyle">
