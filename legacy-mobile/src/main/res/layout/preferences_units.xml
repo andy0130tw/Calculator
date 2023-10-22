@@ -4,7 +4,7 @@
     <SwitchPreference
         android:defaultValue="@bool/USE_RADIANS"
         android:key="USE_RADIANS"
-        android:switchTextOff="@string/degrees"
-        android:switchTextOn="@string/radians"
+        android:summaryOff="@string/degrees"
+        android:summaryOn="@string/radians"
         android:title="@string/trigUnits" />
 </PreferenceScreen>
